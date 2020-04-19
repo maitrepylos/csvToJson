@@ -1,0 +1,7 @@
+### Ceci est un commentaire.
+# les lignes vide ne sont pas utilisées
+
+amount=float
+date=datetime
+name=string
+username=string

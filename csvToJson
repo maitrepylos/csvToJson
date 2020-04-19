@@ -1,0 +1,23 @@
+#!/usr/bin/php
+<?php
+/**
+ * @Author: G² <info@formatux.be> aka @maitrepylos
+ * Date: 19/04/20
+ * Librement inspiré de l'exemple : https://bastienmalahieude.fr/importer-un-fichier-csv-en-tableau-php/
+ */
+require_once 'outils.php';
+
+if ($argc > 1) {
+    $options = options($argv);
+    $fichier = $argv[1];
+    if (file_exists($fichier)) {
+        $tableau = importeCsvToTableau($fichier, $options);
+        echo $tableau;
+        exit();
+    } else {
+        echo message("Le fichier $fichier n'existe pas.");
+        exit();
+    }
+}
+
+echo message("Il n'y a aucun paramètre.");
