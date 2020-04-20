@@ -233,10 +233,10 @@ function adapteType($tableau, $options): array
 {
 
     $date = ["date", "datetime", "time"];
-
+    $format = ["string", "int", "integer", "float", "bool", "boolean", "date", "time", "datetime"];
     foreach ($tableau as &$val) {
         foreach ($val as $key => &$type) {
-            if (array_key_exists($key, $options)) {
+            if (array_key_exists($key, $options) && in_array($key[1], $format, true)) {
 
                 if ((bool)$type === false && $options[$key][0] === null) {
                     $type = null;
